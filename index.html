@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UPI Fraud Detection</title>
+
+    <!-- Libraries -->
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🚨 UPI Mule & Collusion Detection Dashboard</h1>
+</header>
+
+<div class="top-bar">
+    <input type="file" id="fileInput">
+
+    <button onclick="startSimulation()">▶ Start</button>
+    <button onclick="stopSimulation()">⏸ Stop</button>
+    <button onclick="resetGraph()">🔄 Reset</button>
+</div>
+
+<div class="dashboard">
+
+    <div class="card graph-card">
+        <h2>Transaction Network</h2>
+        <div id="graph"></div>
+    </div>
+
+    <div class="card side-panel">
+        <h2>🚨 Mule Accounts</h2>
+        <ul id="muleList"></ul>
+
+        <h2>🔁 Collusion Cycles</h2>
+        <ul id="cycleList"></ul>
+
+        <h2>📊 Fraud Scores</h2>
+        <canvas id="fraudChart"></canvas>
+    </div>
+
+</div>
+
+<div id="alertBox" class="alert hidden">
+    🚨 Collusion Detected!
+</div>
+
+<p id="fileStatus"></p>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
